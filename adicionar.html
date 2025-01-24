@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar</title>
+    <script src="script.js" defer></script>
+    <style>
+    body{
+        height: 101vh;
+        width: 100%;
+        background: rgb(104,0,142);
+        background: linear-gradient(90deg, rgba(104,0,142,1) 40%, rgba(184,0,172,1) 81%);
+    }
+    form{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    table{
+        width: 100%;
+    }
+    .tabela{
+        display: flex;
+    }
+    .returnimg{
+        background: none;
+        width: 60px;
+        height: 60px;
+    }
+    .return{
+        background: none;
+        box-shadow: none;
+        border: none;
+        transition: 0.5s;
+    }
+    .return:hover{
+        scale: 1.5;
+        transition: 0.5s;
+    }
+    label{
+        color: rgba(240, 248, 255, 0.664);
+        padding: 8px;
+    }
+    .enviar{
+        background: none;
+        box-shadow: none;
+        border: none;
+        transition: 0.5s;
+        width: 100px;
+        height: 100px;
+    }
+    .enviar:hover{
+        scale: 1.5;
+        transition: 0.5s;
+    }
+    .send{
+        width: 50px;
+        height: 40px;
+    }
+    input{
+        height: 30px;
+        width: 300px;
+    }
+    label{
+        font-size: 30px;
+    }
+    @media only screen and (max-width: 600px) {
+        body {
+            background: linear-gradient(90deg, rgba(151,111,255,1) 26%, rgba(0,5,108,1) 100%);
+        }
+        tr{
+            font-size: 15px;
+        }
+        label{
+            font-size: 30px;
+        }
+        input{
+            height: 30px;
+            width: 250px;
+        }
+        form{
+            height: 100vh;
+            justify-content: center;
+        }
+    }
+    </style>
+</head>
+<body>
+    
+    <a href="index.html"><button class="return"><img src="return.png" alt="" class="returnimg"></button></a>
+    <form onsubmit="adicionar()" action="./index.html">
+        <label for="nome" id="nome">Nome: </label>
+        <input type="text" name="nome" id="nome">
+        <label for="descnome">Descrição</label>
+        <input type="text" name="desc" id="desc">
+        <button type="submit" value="" class="enviar"><img src="send.png" alt="" class="send"></button>
+    </form>
+
+    <script defer>
+        function adicionar(){
+            nome = document.getElementById("nome")
+            desc = document.getElementById("desc")
+            tarefa1.adicionar(nome.value,desc.value)
+        }
+        function criarTela(){
+            let vazio = 90
+        }
+
+        function criarSelect(){
+            let vazio = 90
+        }
+    </script>
+</body>
+</html>

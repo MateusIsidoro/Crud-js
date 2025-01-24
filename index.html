@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista</title>
+    <script src="script.js" defer></script>
+    <style>
+        body{
+            height: 101vh;
+            width: 100%;
+            background: linear-gradient(90deg, rgba(104,0,142,1) 40%, rgba(184,0,172,1) 81%);
+            overflow: hidden;
+            backdrop-filter: blur(5px);
+        }
+        table{
+            width: 100%;
+        }
+        .container{
+            background-color: rgb(62, 37, 102);
+        }
+        .tabela{
+            display: flex;
+        }
+        .plus{
+            background: none;
+            width: 60px;
+            height: 60px;
+        }
+        .adiciona{
+            background: none;
+            box-shadow: none;
+            border: none;
+            transition: 0.5s;
+        }
+        .adiciona:hover{
+            scale: 1.5;
+            transition: 0.5s;
+        }
+        .edit{
+            background: none;
+            width: 60px;
+            height: 60px;
+        }
+        .editar{
+            background: none;
+            box-shadow: none;
+            border: none;
+            transition: 0.5s;
+        }
+        .editar:hover{
+            scale: 1.5;
+            transition: 0.5s;
+        }
+        .delete{
+            background: none;
+            width: 60px;
+            height: 60px;
+        }
+        .deletar{
+            background: none;
+            box-shadow: none;
+            border: none;
+            transition: 0.5s;
+        }
+        .deletar:hover{
+            scale: 1.5;
+            transition: 0.5s;
+        }
+        th{
+            padding: 8px;
+            color: whitesmoke;
+        }
+        .texto{
+            color: whitesmoke;
+            text-align: center;
+            font-size: 3pc;
+        }
+        @media only screen and (max-width: 600px) {
+            body {
+                background: linear-gradient(90deg, rgba(151,111,255,1) 26%, rgba(0,5,108,1) 100%); 
+            }
+            .container{
+                overflow-x: auto;
+                background-color: rgba(255, 255, 255, 0);
+            }
+            tr{
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="texto">
+        Tabela
+    </div>
+    <div class="container">
+        <table id="tabela">
+            <tr>
+                <th>ID</th>
+                <th>NOME</th>
+                <th>DESCRIÇÃO</th>
+                <th>DATA DE CRIAÇÃO</th>
+                <th>SITUAÇÃO</th>
+                <th><a href="adicionar.html"><button class="adiciona"><img src="plus.png" alt=""></button ></a></th>
+            </tr>
+        </table>
+    </div>
+
+    
+    <script defer>
+        function criarTela(){
+
+            const documento = document.querySelectorAll("#tabela")[0]
+            documento.innerHTML = `
+            <div class="container">
+                   <tr>
+            <th>ID</th>
+            <th>NOME</th>
+            <th>DESCRIÇÃO</th>
+            <th>DATA DE CRIAÇÃO</th>
+            <th>SITUAÇÃO</th>
+            <th><a href="adicionar.html"><button class="adiciona"><img src="plus.png" alt="" class="plus"></button ></a></th>
+                </tr>
+            </div>`
+            
+        tarefa.map((e)=>{
+            documento.innerHTML += `<tr> <th>${e.id}</th>  <th>${e.nome}</th>    <th>${e.desc}</th> <th>${e.data}</th>   <th>${e.situacao}</th>   <th class="atualiza"><a href="atualizar.html?id=${e.id}" value="${e.id}"><button class="editar"><img src="edit.png" alt="" class="edit"></button></a></th> <th class="apaga"><button onclick="tarefa1.excluir(${e.id}), reexibir()" class="deletar"><img src="delete.png" alt="" class="delete"></button></th> </tr>`
+        })
+    }
+
+    function reexibir(){
+        const documento = document.querySelectorAll("#tabela")[0]
+
+                documento.innerHTML = `
+                <div class="container">
+                   <tr>
+            <th>ID</th>
+            <th>NOME</th>
+            <th>DESCRIÇÃO</th>
+            <th>DATA DE CRIAÇÃO</th>
+            <th>SITUAÇÃO</th>
+            <th><a href="adicionar.html"><button class="adiciona"><img src="plus.png" alt="" class="plus"></button ></a></th>
+                </tr>
+                </div>`
+            tarefa.map((e)=>{
+                documento.innerHTML += `<tr> <th>${e.id}</th>  <th>${e.nome}</th>    <th>${e.desc}</th> <th>${e.data}</th>   <th>${e.situacao}</th>   <th><a href="atualizar.html?id=${e.id}" ><button class="editar"><img src="edit.png" alt="" class="edit"></button></a></th> <th><button onclick="tarefa1.excluir(${e.id}), reexibir()" class="deletar"><img src="delete.png" alt="" class="delete"></button></th> </tr>`
+        })
+        }
+
+    function criarSelect(){
+            let vazio = 1
+        }
+    </script>
+</body>
+</html>
